@@ -22,3 +22,16 @@
         const sy = Symbol(obj)
         sy //Symbol('abc')
 
+## Symbol用到的方法和属性
+
+        Object.defineProperty//将对象的属性名指定为一个 Symbol 值。
+        Object.getOwnPropertySymbols//获取指定对象的所有 Symbol 属性名。
+        Symbol.keyFor//返回一个已登记的 Symbol 类型值的key。
+
+## 内置的Symbol值
+
+        Symbol.hasInstance //当其他对象使用instanceof运算符，判断是否为该对象的实例
+        Symbol.isConcatSpreadable //属性等于一个布尔值，表示该对象用于Array.prototype.concat()时，是否可以展开
+        Symbol.species指向一个构造函数，创建衍生对象时使用该属性
+
+

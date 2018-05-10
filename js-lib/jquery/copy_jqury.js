@@ -669,6 +669,32 @@
                 }
             }
 
+
+            /**
+             * Checks document order of two siblings
+             * @param {Element} a
+             * @param {Element} b
+             * @returns {Number} Returns less than 0 if a precedes b, greater than 0 if a follows b
+             */
+            function siblingsCheck(a, b) {
+                var cur = b && a,
+                    diff = cur && a.nodeType === 1 && b.nodeType === 1 &&
+                        a.sourceIndex - b.sourceIndex;
+                if (diff) {
+                    return diff
+                }
+
+                if (cur) {
+                    while ((cur = cur.nextSibling)) {
+                        if (cur === b) {
+                            return -1;
+                        }
+                    }
+                }
+
+                return a ? 1 : -1
+            }
+
         })(window)
 
 })
