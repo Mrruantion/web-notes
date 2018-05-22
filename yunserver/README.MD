@@ -45,4 +45,5 @@ sudo vi /etc/sysconfig/iptables 打开防火墙配置文件
             location / {
                 proxy_path  http://name
             }
+            
         }
