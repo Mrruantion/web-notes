@@ -9,6 +9,8 @@ g......
 mysql 
 mysql -uroot -p
 123
+ruan
+123456
 
 vftpd
 testacc
