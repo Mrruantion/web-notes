@@ -1,14 +1,17 @@
 aliyuanchen
-193696
+193696/5..l..
 5..L..1..4.
 b'an
+
+root 
+5..L..1..4.
 
 guangge
 g......
 
 mysql 
 mysql -uroot -p
-123
+123456
 ruan
 123456
 
