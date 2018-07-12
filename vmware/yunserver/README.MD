@@ -1,10 +1,10 @@
 aliyuanchen
 193696/5..l..
-5..L..1..4.
+5..L.....4.
 b'an
 
 root 
-5..L..1..4.
+5..L.....4.
 
 guangge
 g......
@@ -29,6 +29,8 @@ sudo vi /etc/sysconfig/iptables 打开防火墙配置文件
 查询防火墙状态: service iptables status
 停止防火墙 service iptables stop
 
+配置nvm
+https://help.aliyun.com/document_detail/50775.html?spm=a2c4g.11174283.6.813.VqKh7w
 
 #本地连接云服务器
 
