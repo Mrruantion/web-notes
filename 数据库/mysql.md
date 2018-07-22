@@ -47,5 +47,7 @@
         https://www.cnblogs.com/widows/p/7137184.html
 
 
-
-
+        select * from document where id > 2 ORDER BY id limit 0,2
+        INSERT into document (uid,pid,name) value ('2','3','5')
+        DELETE from document where id >=5;
+        update  document  set uid = '4',pid="4" where id = 3
