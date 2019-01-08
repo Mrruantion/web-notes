@@ -193,3 +193,54 @@ const getJSON = function (url) {
 }
 
 getJSON('/posts.json').then(function (json) { console.log(json) }, function (err) { console.log(err) })
+
+
+local_api._list('docProp', { id: '>27' }, '', 'did', 1, -1, 'dd', function (res) {
+    res.data.forEach(ele => {
+        var update_json = { did: ele.did };
+        var query_json = { id: ele.fid };
+        local_api._update('document', query_json, update_json, 'access_token', function (res) { console.log(res) })
+    })
+})
+
+
+local_api._list('document', { id: '>967', type: 2 }, 'did,tree_path,id', '', 1, -1, '', function (res) {
+    // res.data.forEach(ele => {
+    var data = res.data;
+    var i = 0;
+    function start() {
+        var update_json = { tree_path: ',0,1,185,265,' + data[i].id };
+        var tree_path = ',0,1,185,265,' + data[i].id + ',';
+        var query_json = { id: data[i].id };
+        local_api._update('document', query_json, update_json, 'access_token', function (res) {
+            local_api._list('document', { pid: data[i].id, type: 3 }, 'did,tree_path,id', '', 1, -1, '', function (res) {
+                var _datas = res.data;
+                if (res.data.length) {
+                    res.data.forEach((ele, _index) => {
+                        var update_json = { tree_path: tree_path + ele.id };
+                        var query_json = { id: ele.id };
+                        local_api._update('document', query_json, update_json, 'access_token', function (res) {
+                            // callback()
+                            if (_index == _datas.length - 1) {
+                                if (data[i].id) {
+                                    console.log(data[i].id)
+                                    i++;
+                                    start()
+                                }
+                            }
+
+                        })
+                    })
+                } else {
+                    if (data[i].id) {
+                        console.log(data[i].id)
+                        i++;
+                        start()
+                    }
+                }
+
+            })
+        })
+    }
+    start()
+})

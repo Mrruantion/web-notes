@@ -51,3 +51,12 @@
         INSERT into document (uid,pid,name) value ('2','3','5')
         DELETE from document where id >=5;
         update  document  set uid = '4',pid="4" where id = 3
+
+#备份
+
+        mysqldump --single-transaction --flush-logs --master-data=2 -u[root] -p[psd] [database]> mysqlpub_backup.sql
+
+#恢复
+
+        mysql -uroot -pPwd [database] < msyqlpub_backup.sql
+        mysqlbinlog mysql-bin.000003 | mysql -uroot -ppassword

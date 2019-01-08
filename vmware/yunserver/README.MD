@@ -54,3 +54,11 @@ https://help.aliyun.com/document_detail/50775.html?spm=a2c4g.11174283.6.813.VqKh
             }
             
         }
+        
+#nginx 所在位置
+
+        /etc/nginx
+
+#重启nginx
+
+        sudo /usr/sbin/nginx -s reload
